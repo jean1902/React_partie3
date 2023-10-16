@@ -4,12 +4,12 @@ import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import axios, { Axios } from "axios";
 // importer react hook form pour la validation des données
 import "./inscription.css";
+import Connexion from "../connexion/connexion";
 import toast, { Toaster } from "react-hot-toast";
-import {Navigate, useNavigate} from "react-router-dom" // pour faire des redirections 
+import { Navigate, useNavigate } from "react-router-dom"; // pour faire des redirections
 
 export default function inscription() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -56,7 +56,7 @@ export default function inscription() {
               console.log(data);
 
               axios
-                .get(`http://localhost:3000/utilisateur?Email=${data.Email}`) //verifie si l'user existe 
+                .get(`http://localhost:3000/utilisateur?Email=${data.Email}`) //verifie si l'user existe
 
                 .then((response) => {
                   if (response.data.length > 0) {
@@ -68,11 +68,11 @@ export default function inscription() {
                       .then((response) => {
                         console.log(response);
                         toast.success("inscription reussi");
-                        navigate("/")
+                        navigate("/connexion");
                       })
                       .catch((err) => {
                         console.log(err);
-                      }); 
+                      });
                   }
                 });
 
