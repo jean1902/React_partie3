@@ -111,7 +111,9 @@ export default function inscription() {
 
           {errors.exampleRequired && <p>This field is required</p>}
           <input type="submit" />
+         
         </form>
+       
       </Box>
     </Stack>
   );
